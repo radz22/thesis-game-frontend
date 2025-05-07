@@ -1,5 +1,5 @@
 import React from "react";
-import background from "../picture/front.gif";
+import background from "../picture/Front.gif";
 import { FormLayoutComponent } from "./FormLayoutComponent";
 import TitleComponent from "./TitleComponent";
 import { useForm } from "react-hook-form";
@@ -11,7 +11,7 @@ import ResetPasswordHook from "../hook/reset-password";
 import { handleErrorAlert } from "./sweet-alert";
 const ResetPassword = () => {
   const { id } = useParams();
-  const { loading, handleResetPassword } = ResetPasswordHook();
+  const { handleResetPassword } = ResetPasswordHook();
   const {
     register,
     handleSubmit,
