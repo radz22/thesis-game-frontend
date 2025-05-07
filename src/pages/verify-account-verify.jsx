@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import VerifyAccountHook from "../hook/verify-account";
 import Loading from "../component/loading-screen";
-import background from "../picture/front.gif";
+import background from "../picture/Front.gif";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 const VerifyAccount = () => {
