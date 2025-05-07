@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import background from "../picture/spacebg.gif";
-import {
-  htmlLesson,
-  cssLesson,
-  jsLesson,
-} from "../../../backend/src/utils/lesson";
+import { htmlLesson, cssLesson, jsLesson } from "../utils/lesson";
 import { Link } from "react-router-dom";
 import LessonModal from "../component/custom-modal/modal-lessson";
 

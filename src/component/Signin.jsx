@@ -7,7 +7,7 @@ import { signinFormSchema } from "../validation/signin-schema";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import SignInHook from "../hook/signin-hook";
-import background from "../picture/Front.gif";
+import background from "../picture/background.gif";
 
 export default function Signin() {
   const { handleSignIn, loading } = SignInHook();
