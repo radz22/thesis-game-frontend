@@ -1,5 +1,5 @@
 import React from "react";
-import background from "../picture/Front.gif";
+import background from "../picture/background.gif";
 import { FormLayoutComponent } from "./FormLayoutComponent";
 import TitleComponent from "./TitleComponent";
 import ButtonComponent from "./ButtonComponent";
