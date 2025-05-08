@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const ButtonComponent = ({ handleSignIn }) => {
+import LoadingButton from "./loading-button";
+const ButtonComponent = ({ handleSignIn, loading }) => {
   return (
     <div>
       <div className="flex items-center justify-center gap-10 absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-mono ">
@@ -12,7 +12,7 @@ const ButtonComponent = ({ handleSignIn }) => {
          "
           onClick={handleSignIn}
         >
-          Enter
+          {loading ? <LoadingButton /> : "Enter"}
         </button>
 
         <Link to="/Signin">

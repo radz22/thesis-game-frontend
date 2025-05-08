@@ -3,7 +3,7 @@ import axios from "axios";
 export const getQuestion = async (category, level) => {
   try {
     const response = await axios.get(
-      `https://techtales-backend-8u6e.onrender.com/api/question-answer/${category}/${level}`
+      `http://localhost:3000/api/question-answer/${category}/${level}`
     );
     return response.data;
   } catch (error) {
@@ -14,7 +14,7 @@ export const getQuestion = async (category, level) => {
 export const getHtmlQuestionAndAnswer = async (category, level) => {
   try {
     const response = await axios.get(
-      `https://techtales-backend-8u6e.onrender.com/api/html/${category}/${level}`
+      `http://localhost:3000/api/html/${category}/${level}`
     );
     return response.data;
   } catch (error) {
@@ -25,7 +25,7 @@ export const getHtmlQuestionAndAnswer = async (category, level) => {
 export const getCssQuestionAndAnswer = async (category, level) => {
   try {
     const response = await axios.get(
-      `https://techtales-backend-8u6e.onrender.com/api/css/${category}/${level}`
+      `http://localhost:3000/api/css/${category}/${level}`
     );
     return response.data;
   } catch (error) {
@@ -36,7 +36,7 @@ export const getCssQuestionAndAnswer = async (category, level) => {
 export const getJsQuestionAndAnswer = async (category, level) => {
   try {
     const response = await axios.get(
-      `https://techtales-backend-8u6e.onrender.com/api/js/${category}/${level}`
+      `http://localhost:3000/api/js/${category}/${level}`
     );
     return response.data;
   } catch (error) {

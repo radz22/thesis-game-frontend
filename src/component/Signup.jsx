@@ -9,7 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import SignUpHook from "../hook/signup-hook";
 import { handleErrorAlert } from "./sweet-alert";
 const Signup = () => {
-  const { handleSignup } = SignUpHook();
+  const { handleSignup, loading } = SignUpHook();
 
   const {
     register,
@@ -83,7 +83,10 @@ const Signup = () => {
           )}
         </form>
       </FormLayoutComponent>
-      <ButtonComponent handleSignIn={handleSubmit(onSubmit)} />
+      <ButtonComponent
+        handleSignIn={handleSubmit(onSubmit)}
+        loading={loading}
+      />
     </div>
   );
 };

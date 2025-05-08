@@ -6,7 +6,7 @@ import victorySound from "../../assets/VICTORY  SOUND EFFECT - FREE SOUND EFFECT
 import { formatTime } from "../../utils/time-formater";
 import LeaderBoardHook from "../../hook/leader-board-hook";
 import { useNavigate } from "react-router-dom";
-
+import LoadingButton from "../loading-button";
 const FinishModal = ({
   points,
   level,
@@ -14,6 +14,8 @@ const FinishModal = ({
   time,
   category,
   setFinishModalOpen,
+  setIsRunning,
+  setTime,
 }) => {
   const { handleCreateLeaderBoardAndLevelPoints, loading } = LeaderBoardHook();
   const navigate = useNavigate();
@@ -35,6 +37,8 @@ const FinishModal = ({
     );
     if (response) {
       setFinishModalOpen(false);
+      setIsRunning(true);
+      setTime(0);
       navigate(
         category === "HTML"
           ? `/questions/html/HTML/${continueNavigate}`
@@ -105,7 +109,7 @@ const FinishModal = ({
               disabled={loading}
               onClick={handleSuccess}
             >
-              {loading ? "Loading..." : "Continue"}
+              {loading ? <LoadingButton /> : "Next Level"}
             </button>
             <button
               className="bg-yellow-400 hover:bg-yellow-300 transition-colors text-black font-bold text-lg px-6 py-1 rounded-full border-4 border-black shadow-lg z-[60] w-[150px]"

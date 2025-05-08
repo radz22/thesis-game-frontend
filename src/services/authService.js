@@ -2,7 +2,7 @@ import axios from "axios";
 export const signinServices = async (data) => {
   try {
     const response = await axios.post(
-      `https://techtales-backend-8u6e.onrender.com/api/signin`,
+      `http://localhost:3000/api/signin`,
       data,
       {
         withCredentials: true,
@@ -15,10 +15,7 @@ export const signinServices = async (data) => {
 };
 export const signupServices = async (data) => {
   try {
-    const response = await axios.post(
-      `https://techtales-backend-8u6e.onrender.com/api/signup`,
-      data
-    );
+    const response = await axios.post(`http://localhost:3000/api/signup`, data);
     return response.data;
   } catch (error) {
     throw error;
@@ -27,7 +24,7 @@ export const signupServices = async (data) => {
 export const forgotPasswordService = async (email) => {
   try {
     const response = await axios.post(
-      `https://techtales-backend-8u6e.onrender.com/api/forgot-password`,
+      `http://localhost:3000/api/forgot-password`,
       email
     );
     return response.data;
@@ -39,7 +36,7 @@ export const forgotPasswordService = async (email) => {
 export const resetPasswordService = async (data) => {
   try {
     const response = await axios.post(
-      `https://techtales-backend-8u6e.onrender.com/api/reset-password`,
+      `http://localhost:3000/api/reset-password`,
       {
         newpassword: data.newpassword,
         token: data.token,
@@ -53,7 +50,7 @@ export const resetPasswordService = async (data) => {
 export const logoutServices = async () => {
   try {
     const response = await axios.post(
-      `https://techtales-backend-8u6e.onrender.com/api/logout`,
+      `http://localhost:3000/api/logout`,
       {},
       {
         withCredentials: true,
@@ -67,12 +64,26 @@ export const logoutServices = async () => {
 export const profileService = async () => {
   try {
     const response = await axios.get(
-      `https://techtales-backend-8u6e.onrender.com/api/profile`,
+      `http://localhost:3000/api/profile`,
 
       {
         withCredentials: true,
       }
     );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+export const updateProfile = async (id, username) => {
+  try {
+    const response = await axios.put(
+      `http://localhost:3000/api/update/profile/${id}`,
+      {
+        username: username,
+      }
+    );
+
     return response.data;
   } catch (error) {
     throw error;

@@ -166,7 +166,7 @@ const Languagepick = () => {
         >
           <div className=" bg-black rounded-lg p-2 ">
             <div className="text-yellow-300 font-bold text-2xl font-mono tracking-normal">
-              <h1>{profile?.username}</h1>
+              <h1>{profile?.user?.username}</h1>
             </div>
           </div>
         </div>

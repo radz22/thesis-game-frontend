@@ -36,10 +36,11 @@ import Question24 from "../component/question-css/question24";
 import Question25 from "../component/question-css/question25";
 import { handleErrorAlert } from "../component/sweet-alert";
 import { useNavigate } from "react-router-dom";
+import Loading from "../component/loading-screen";
 import TimerDisplay from "../utils/timer-display";
 export const CssQuestion = () => {
   const { category, level } = useParams();
-  const { questionData, handleGetQuestion } = QuestionCssHook();
+  const { questionData, handleGetQuestion, loading } = QuestionCssHook();
   const [time, setTime] = useState(0);
   const [stars, setStars] = useState(3);
   const [isRunning, setIsRunning] = useState(true);
@@ -67,9 +68,13 @@ export const CssQuestion = () => {
   }, [isRunning]);
 
   useEffect(() => {
-    if (time < 120) setStars(3);
-    else if (time >= 120 && time <= 240) setStars(2);
-    else setStars(1);
+    if (time < 60) {
+      setStars(3);
+    } else if (time >= 60 && time <= 120) {
+      setStars(2);
+    } else {
+      setStars(1);
+    }
   }, [time]);
 
   const handleAnswerChange = (event) => {
@@ -86,6 +91,7 @@ export const CssQuestion = () => {
     ) {
       setIsRunning(false);
       setFinishModalOpen(true);
+      setAnswerInput({ answer1: "", answer2: "", answer3: "", answer4: "" });
     } else {
       handleErrorAlert("Wrong Answer");
     }
@@ -300,6 +306,11 @@ export const CssQuestion = () => {
   const handleNavigate = () => {
     navigate("/languagepick/csslevel");
   };
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div
       className="w-full h-screen relative flex items-center justify-center flex-col"
@@ -327,6 +338,8 @@ export const CssQuestion = () => {
         finishModalOpen={finishModalOpen}
         category={category}
         setFinishModalOpen={setFinishModalOpen}
+        setIsRunning={setIsRunning}
+        setTime={setTime}
       />
     </div>
   );

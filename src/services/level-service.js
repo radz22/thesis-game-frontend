@@ -2,7 +2,7 @@ import axios from "axios";
 export const getLevelByUser = async (category) => {
   try {
     const response = await axios.get(
-      `https://techtales-backend-8u6e.onrender.com/api/level/${category}`,
+      `http://localhost:3000/api/level/${category}`,
       {
         withCredentials: true,
       }
@@ -16,7 +16,7 @@ export const getLevelByUser = async (category) => {
 export const getLevel = async (category, level) => {
   try {
     const response = await axios.post(
-      "https://techtales-backend-8u6e.onrender.com/api/level",
+      "http://localhost:3000/api/level",
       {
         category: category,
         level: level,
@@ -34,7 +34,7 @@ export const getLevel = async (category, level) => {
 export const validateLevel = async (category, level) => {
   try {
     const response = await axios.post(
-      "https://techtales-backend-8u6e.onrender.com/api/level/validate",
+      "http://localhost:3000/api/level/validate",
       { category, level },
       { withCredentials: true }
     );

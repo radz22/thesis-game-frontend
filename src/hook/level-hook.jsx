@@ -50,7 +50,7 @@ const LevelHook = () => {
         }
       }
     } catch (error) {
-      handleErrorAlert("Finish Previos Level");
+      handleErrorAlert("Finish Previous Level");
     }
   };
 

@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import SignInHook from "../hook/signin-hook";
 import background from "../picture/background.gif";
-
 export default function Signin() {
   const { handleSignIn, loading } = SignInHook();
   const [showPassword, setShowPassword] = useState(false);
@@ -93,7 +92,10 @@ export default function Signin() {
           </Link>
         </form>
       </FormLayoutComponent>
-      <ButtonComponent handleSignIn={handleSubmit(onSubmit)} />
+      <ButtonComponent
+        handleSignIn={handleSubmit(onSubmit)}
+        loading={loading}
+      />
     </div>
   );
 }
