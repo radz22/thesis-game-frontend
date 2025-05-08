@@ -51,7 +51,10 @@ const Recover = () => {
         </form>
       </FormLayoutComponent>
       <div>
-        <ButtonRecovery handleSubmit={handleSubmit(onSubmit)} />
+        <ButtonRecovery
+          handleSubmit={handleSubmit(onSubmit)}
+          loading={loading}
+        />
       </div>
     </div>
   );

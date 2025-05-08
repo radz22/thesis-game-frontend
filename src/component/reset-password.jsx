@@ -11,7 +11,7 @@ import ResetPasswordHook from "../hook/reset-password";
 import { handleErrorAlert } from "./sweet-alert";
 const ResetPassword = () => {
   const { id } = useParams();
-  const { handleResetPassword } = ResetPasswordHook();
+  const { handleResetPassword, loading } = ResetPasswordHook();
   const {
     register,
     handleSubmit,
@@ -73,7 +73,10 @@ const ResetPassword = () => {
         </form>
       </FormLayoutComponent>
       <div>
-        <ButtonRecovery handleSubmit={handleSubmit(onSubmit)} />
+        <ButtonRecovery
+          handleSubmit={handleSubmit(onSubmit)}
+          loading={loading}
+        />
       </div>
     </div>
   );

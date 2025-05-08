@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const ButtonRecovery = ({ handleSubmit }) => {
+import LoadingButton from "./loading-button";
+const ButtonRecovery = ({ handleSubmit, loading }) => {
   return (
     <div>
       <div className="flex items-center justify-center gap-10 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-mono">
@@ -13,9 +13,10 @@ const ButtonRecovery = ({ handleSubmit }) => {
         <button
           type="submit"
           onClick={handleSubmit}
+          disabled={loading}
           className="bg-[#b6b3b3] w-[160px] h-[60px] rounded-full font-bold text-[#084747] border-white border-2 hover:bg-[#f0f0f0]"
         >
-          Reset
+          {loading ? <LoadingButton /> : "Reset"}
         </button>
       </div>
     </div>
