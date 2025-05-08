@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ModalTitle from "./modal-title";
 import { StarRating } from "../../utils/star-rating";
 import ConfettiExplosion from "react-confetti-explosion";
@@ -17,7 +17,10 @@ const FinishModal = ({
   setIsRunning,
   setTime,
 }) => {
-  const { handleCreateLeaderBoardAndLevelPoints, loading } = LeaderBoardHook();
+  const { handleCreateLeaderBoardAndLevelPoints } = LeaderBoardHook();
+  const [exitLoading, setExitLoading] = useState(false);
+  const [nextLevelLoading, setNextLevelLoading] = useState(false);
+
   const navigate = useNavigate();
   const continueNavigate = Number(level) + 1;
   useEffect(() => {
@@ -30,12 +33,14 @@ const FinishModal = ({
   if (!finishModalOpen) return null;
 
   const handleSuccess = async () => {
+    setNextLevelLoading(true);
     const response = await handleCreateLeaderBoardAndLevelPoints(
       category,
       level,
       points
     );
     if (response) {
+      setNextLevelLoading(false);
       setFinishModalOpen(false);
       setIsRunning(true);
       setTime(0);
@@ -50,6 +55,7 @@ const FinishModal = ({
   };
 
   const handleExist = async () => {
+    setExitLoading(true);
     const response = await handleCreateLeaderBoardAndLevelPoints(
       category,
       level,
@@ -57,6 +63,7 @@ const FinishModal = ({
     );
 
     if (response) {
+      setExitLoading(false);
       setFinishModalOpen(false);
       navigate(
         category === "HTML"
@@ -106,16 +113,17 @@ const FinishModal = ({
           <div className="flex justify-between items-center w-full px-10 mt-4 absolute -bottom-6 left-1/2 transform -translate-x-1/2">
             <button
               className="bg-yellow-400 hover:bg-yellow-300 transition-colors text-black font-bold text-lg px-6 py-1 rounded-full border-4 border-black shadow-lg z-[60] w-[150px]"
-              disabled={loading}
+              disabled={nextLevelLoading}
               onClick={handleSuccess}
             >
-              {loading ? <LoadingButton /> : "Next Level"}
+              {nextLevelLoading ? <LoadingButton /> : "Next Level"}
             </button>
             <button
               className="bg-yellow-400 hover:bg-yellow-300 transition-colors text-black font-bold text-lg px-6 py-1 rounded-full border-4 border-black shadow-lg z-[60] w-[150px]"
               onClick={handleExist}
+              disabled={exitLoading}
             >
-              Exit
+              {exitLoading ? <LoadingButton /> : "Exit"}
             </button>
           </div>
         )}

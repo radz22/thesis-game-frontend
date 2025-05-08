@@ -81,7 +81,7 @@ export const profileService = async () => {
 export const updateProfile = async (id, username) => {
   try {
     const response = await axios.put(
-      `https://techtales-backend-8u6e.onrender.com/update/profile/${id}`,
+      `https://techtales-backend-8u6e.onrender.com/api/update/profile/${id}`,
       {
         username: username,
       }
