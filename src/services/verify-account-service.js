@@ -2,7 +2,7 @@ import axios from "axios";
 export const verifyAccountService = async (token) => {
   try {
     const response = await axios.get(
-      `http://localhost:3000/api/verify/account/${token}`
+      `https://techtales-backend-8u6e.onrender.com/api/verify/account/${token}`
     );
 
     console.log(token);
